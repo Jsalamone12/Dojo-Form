@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Student
+
+<h2 class="text-danger">Hello! Another Dojo Survey</h2>
+<h3>@ViewBag.SecretMessage</h3>
+
+<form method="POST" class="form-control" asp-controller="Home" asp-action="AddStudent">
+    <label>Your Name</label>
+    <input type="text" asp-for="Name">
+      <span asp-validation-for="Name"></span>
+
+    <label>Dojo Location</label>
+    <input type="text" asp-for="Location">
+      <span asp-validation-for="Location"></span>
+    <hr>
+    <label for="languages">Favorite programming language:</label>
+    <select name="FavoriteLanguage" asp-for="FavoriteLanguage">
+        <option value="java">Java</option>
+        <option value="csharp">C#</option>
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+    </select>
+      <span asp-validation-for="FavoriteLanguage"></span>
+
+
+    <label>Comment: </label>
+    <input type="textbox" asp-for="Comment">
+    <span asp-validation-for="Comment"></span>
+
+    <input class="btn btn-success" type="submit" value="Add Student">
+</form>
+
+@* <div asp-validation-summary="All" class="text-danger"></div> *@
